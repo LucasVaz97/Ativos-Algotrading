@@ -35,11 +35,11 @@ class MarketMaker(Strategy):
 
                 pbr=(self.pricePETR3/self.priceUSD)*2
 
-                orderCompra=(Order(event.instrument,1,pbr-self.spread))
+                orderCompra=(Order('PBR',1,pbr-self.spread))
                 self.compraId=orderCompra.id
                 orders.append(orderCompra)
 
-                orderVenda=(Order(event.instrument,-1,pbr+self.spread))
+                orderVenda=(Order('PBR',-1,pbr+self.spread))
                 self.vendeId=orderVenda.id
                 orders.append(orderVenda)
 
@@ -76,4 +76,4 @@ class MarketMaker(Strategy):
 
 
  
-print(evaluateIntr(MarketMaker(), {'USDBRL': 'USDBRL.csv', 'PETR3': 'PETR3.csv','pbr':'pbr.csv'}))
+print(evaluateIntr(MarketMaker(), {'USDBRL': 'USDBRL.csv', 'PETR3': 'PETR3.csv','PBR':'pbr.csv'}))
